@@ -40,8 +40,7 @@ function getFirstName() {
 
 // C) getMiddleName() — SWITCH
 function getMiddleName() {
-  const activity = document.querySelector('input[name="activity"]:checked')?.value;
-  let middleName = "";
+
 
   switch (activity) {
     case "Swim":

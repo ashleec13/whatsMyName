@@ -1,3 +1,4 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,20 +6,67 @@
 }
 
 body {
-    background: linear-gradient(135deg, #73BF9C 0%, #5fa88a 100%);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
-    padding: 20px;
+    position: relative;
 }
 
+/* Full-page waves */
+.waves {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #73BF9C 0%, #5fa88a 100%);
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Multiple sine-wave layers */
+.waves::before,
+.waves::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    border-radius: 43% 57% 52% 48% / 55% 41% 59% 45%;
+    background: rgba(255, 255, 255, 0.15);
+    animation: waveAnim 20s linear infinite;
+}
+
+.waves::after {
+    background: rgba(255, 255, 255, 0.1);
+    animation: waveAnim 35s linear infinite reverse;
+}
+
+/* Animate the waves */
+@keyframes waveAnim {
+    0% { transform: translateX(0) translateY(0) rotate(0deg); border-radius: 43% 57% 52% 48% / 55% 41% 59% 45%; }
+    25% { border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%; }
+    50% { transform: translateX(-50%) translateY(0) rotate(0deg); border-radius: 43% 57% 52% 48% / 55% 41% 59% 45%; }
+    75% { border-radius: 48% 52% 45% 55% / 50% 50% 60% 40%; }
+    100% { transform: translateX(0) translateY(0) rotate(0deg); border-radius: 43% 57% 52% 48% / 55% 41% 59% 45%; }
+}
+
+/* Main content */
 main {
     max-width: 800px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
 }
+
+
+
+/* EVERYTHING ABOVE HAS BEEN DONE BY CHATGPT FOR THE ANIMATIONS OF WAVES IN THE BACKGROUND */
+
 
 h1 {
     color: #2c5f5f;
