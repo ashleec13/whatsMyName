@@ -3,13 +3,13 @@ let selectedMonth = "";
 function checkMonth(month) {
   selectedMonth = month;
   
-  // Remove highlight from all month buttons
+ 
   const allButtons = document.querySelectorAll("button");
   allButtons.forEach(btn => {
     btn.classList.remove("month-selected");
   });
   
-  // Find and highlight the clicked button
+
   allButtons.forEach(btn => {
     if (btn.textContent === month) {
       btn.classList.add("month-selected");
@@ -17,7 +17,7 @@ function checkMonth(month) {
   });
 }
 
-// A) getFirstName() — PREFIX BY MONTH
+// MIX OF DIFFERNT THINGS GOOGLED AND A BIT OF AI HELP
 function getFirstName() {
   if (
     selectedMonth === "January" ||
@@ -38,32 +38,24 @@ function getFirstName() {
   }
 }
 
-// C) getMiddleName() — SWITCH
+// HELP WITH AI BC IT WAS NOT WORKING
 function getMiddleName() {
+  const activityElement = document.querySelector('input[name="activity"]:checked');
+  const activityValue = activityElement ? activityElement.value : "";
 
-
-  switch (activity) {
+  switch (activityValue) {
     case "Swim":
-      middleName = "Bubble";
-      break;
-
+      return "Bubble";
     case "Play in Sand":
-      middleName = "Splash";
-      break;
-
+      return "Splash";
     case "Tan":
-      middleName = "Twinkle";
-      break;
-
+      return "Twinkle";
     default:
-      middleName = "Shine";
-      break;
+      return "Shine";
   }
-
-  return middleName;
 }
 
-// D) getLastName() — TIME OF DAY
+// FOUND ON MDN WEB DOCS
 function getLastName() {
   const hour = new Date().getHours();
   let lastName = "";
@@ -79,7 +71,7 @@ function getLastName() {
   return lastName;
 }
 
-// E) getSuffix() — DROPDOWN
+// FOUND ON BOOTSTRAP
 function getSuffix() {
   const weather = document.getElementById("weather").value;
   let suffix = "";
@@ -95,7 +87,7 @@ function getSuffix() {
   return suffix;
 }
 
-// F) MAIN GENERATE FUNCTION
+// FOUND ON W3 SCHOOLS 
 function generateMermaidName() {
   if (!selectedMonth) {
     alert("Please select a month!");
@@ -123,41 +115,11 @@ function generateMermaidName() {
   document.getElementById("result").innerText = fullName;
 }
 
+
+// AI WAS USED ON THIS WITH BUILT IN AI
 // Event listener for button
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById("generateBtn").addEventListener('click', generateMermaidName);
-});
-
-// INPUT VALIDATION
-function validateInputs() {
-  const activityChecked = document.querySelector('input[name="activity"]:checked');
-  const weather = document.getElementById("weather").value;
-
-  if (!activityChecked || weather === "") {
-    alert("Not quite yet! A few shells are still missing. Answer all the questions to discover your mermaid name.");
-    return false;
-  }
-
-  return true;
-}
-
-// MAIN FUNCTION
-function generateMermaidName() {
-  if (!validateInputs()) return;
-
-  const middle = getMiddleName();
-  const last = getLastName();
-  const suffix = getSuffix();
-
-  document.getElementById("result").innerText =
-    `Your mermaid name is: ${middle} ${last} ${suffix}`;
-}
-
-// BUTTON EVENT LISTENER
-document.addEventListener("DOMContentLoaded", () => {
-  document
-    .getElementById("generateBtn")
-    .addEventListener("click", generateMermaidName);
 });
 
 

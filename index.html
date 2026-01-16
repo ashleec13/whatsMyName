@@ -37,45 +37,59 @@
             <button onclick="checkMonth('December')">December</button>
         </div>
 
-        <div>
-          <p>What do you like to do in the ocean?</p>
-  <label>
-    <input type="checkbox" value="Float" id="float">
-    Float
-  </label>
+        <div class="question-section">
+            <p>What do you like to do in the ocean?</p>
+            <div class="options-container">
+                <label>
+                    <input type="checkbox" value="Float" id="float">
+                    Float
+                </label>
+                <label>
+                    <input type="checkbox" value="Swim" id="swim">
+                    Swim
+                </label>
+                <label>
+                    <input type="checkbox" value="Surf" id="surf">
+                    Surf
+                </label>
+            </div>
+        </div>
 
-  <label>
-    <input type="checkbox" value="Swim" id="swim">
-    Swim
-  </label>
+        <div class="question-section">
+            <p>What do you like to do?</p>
+            <div class="options-container">
+                <label>
+                    <input type="radio" name="activity" value="Swim">
+                    Swim
+                </label>
+                <label>
+                    <input type="radio" name="activity" value="Play in Sand">
+                    Play in Sand
+                </label>
+                <label>
+                    <input type="radio" name="activity" value="Tan">
+                    Tan
+                </label>
+            </div>
+        </div>
 
-  <label>
-    <input type="checkbox" value="Surf" id="surf">
-    Surf
-  </label>
-</div>
+        <div class="question-section">
+            <p>What is the weather like?</p>
+            <div class="options-container">
+                <select id="weather" class="weather-select">
+                    <option value="">-- Choose one --</option>
+                    <option value="Warm and sunny">Warm and sunny</option>
+                    <option value="Cool and breezy">Cool and breezy</option>
+                    <option value="Calm and cloudy">Calm and cloudy</option>
+                </select>
+            </div>
+        </div>
 
-<p>What do you like to do?</p>
-<label><input type="radio" name="activity" value="Swim"> Swim</label><br>
-<label><input type="radio" name="activity" value="Play in Sand"> Play in Sand</label><br>
-<label><input type="radio" name="activity" value="Tan"> Tan</label>
+        <div class="text-center">
+            <button id="generateBtn" class="generate-btn">Find Out Your Mermaid Name!</button>
+        </div>
 
-<br><br>
-
-<!-- SUFFIX (DROPDOWN) -->
-<p>What is the weather like?</p>
-<select id="weather">
-  <option value="">-- Choose one --</option>
-  <option value="Warm and sunny">Warm and sunny</option>
-  <option value="Cool and breezy">Cool and breezy</option>
-  <option value="Calm and cloudy">Calm and cloudy</option>
-</select>
-
-<br><br>
-
-<button id="generateBtn align-items-center">Find Out Your Mermaid Name!</button>
-
-<div id="result"></div>
+        <div id="result"></div>
 
     </main>
     <footer>
