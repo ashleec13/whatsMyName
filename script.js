@@ -61,14 +61,30 @@ function getLastName() {
   let lastName = "";
 
   if (hour >= 6 && hour < 12) {
-    lastName = "Seafoam";
+    lastName = "Mermaid";
   } else if (hour >= 12 && hour < 18) {
-    lastName = "Shellsong";
+    lastName = "Siren";
   } else {
-    lastName = "Seamist";
+    lastName = "Triton";
   }
 
   return lastName;
+}
+
+// BASED ON SWIMMING TIME PREFERENCE
+function getPrefix() {
+  const time = document.getElementById("time").value;
+  let prefix = "";
+
+  if (time === "Morning") {
+    prefix = "Seafoam";
+  } else if (time === "Day") {
+    prefix = "Shellsong";
+  } else if (time === "Night") {
+    prefix = "Seamist";
+  }
+
+  return prefix;
 }
 
 // FOUND ON BOOTSTRAP
@@ -106,12 +122,19 @@ function generateMermaidName() {
     return;
   }
 
+  const time = document.getElementById("time").value;
+  if (!time) {
+    alert("Please select a swimming time!");
+    return;
+  }
+
   const firstName = getFirstName();
   const middleName = getMiddleName();
   const lastName = getLastName();
+  const prefix = getPrefix();
   const suffix = getSuffix();
 
-  const fullName = `${firstName} ${middleName} ${lastName} ${suffix}`;
+  const fullName = `${firstName} ${middleName} ${lastName} ${prefix} ${suffix}`;
   document.getElementById("result").innerText = fullName;
 }
 
